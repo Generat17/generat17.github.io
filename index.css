@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.player {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+}
+
+.player__video {
+    position: absolute;
+}
+
+.player__status-bar {
+    background: black;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+}
+
+/* ///////////////////////////////////// */
+/*               Левый блок              */
+/* ///////////////////////////////////// */
+
+.player__status-bar__left {
+    display: flex;
+}
+
+/* Кнопка play/pause */
+.player__status-bar__left__video_act {
+    margin-left: 10px;
+}
+
+.player__status-bar__left__video_act-play {
+    margin-left: 10px;
+    background: green;
+}
+
+.player__status-bar__left__video_act-pause {
+    margin-left: 10px;
+    background: red;
+}
+
+/* Кнопка stop */
+.player__status-bar__left__stop {
+    margin-left: 10px;
+}
+
+/* Отображает текущее время просмотра */
+.player__status-bar__progress-time {
+    margin-left: 10px;
+    color: #fff;
+}
+
+/* Ползунок громкости */
+.player__status-bar__right__input {
+    margin-left: 10px;
+}
+
+/* ///////////////////////////////////// */
+/*            Прогресс видео             */
+/* ///////////////////////////////////// */
+.player__progress {
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.player__progress__progress {
+    width: 100%;
+}
+
+/* ///////////////////////////////////// */
+/*              Правый блок              */
+/* ///////////////////////////////////// */
+.player__status-bar__right {
+    margin-left: 10px;
+}
+
+/* Выбор скорости просмотра */
+.player__status-bar__right__select {
+    margin-left: 10px;
+}
+
+/* Кнопка на 10 секунд назад */
+.player__status-bar__right__step-back {
+    margin-left: 10px;
+}
+
+/* Кнопка на 10 секунд вперед */
+.player__status-bar__right__step-forward {
+
+}
+

@@ -9,33 +9,50 @@ document.querySelector('#video_speed').onchange = videoChangeSpeed;
 let actionButton = document.querySelector('#video_act');
 let speedSelect = document.querySelector('#video_speed');
 
-let video = document.querySelector('#video-player');
+let video = document.querySelector('#video');
 let volumeBar = document.querySelector('#volume');
 let progress = document.querySelector('#progress');
+
 let progressTime = document.querySelector('#progress-time');
+progressTime.innerHTML = `0:0:0`;
 
 video.ontimeupdate = progressUpdate;
 progress.onclick = videoRewind;
 video.onclick = videoPlay;
 
 function video_act() {
-    if(video.paused) {
+    if (video.paused) {
 
         video.play();
 
-        actionButton.setAttribute('class','play');
+        actionButton.setAttribute('class', 'player__status-bar__left__video_act-play');
 
     } else {
 
         video.pause();
 
-        actionButton.setAttribute('class','pause');
+        actionButton.setAttribute('class', 'player__status-bar__left__video_act-pause');
 
-    }}
-function stop() { video.pause(); video.currentTime = 0; }
-function stepBack() { video.currentTime = video.currentTime - 5; }
-function stepForward() { video.currentTime = video.currentTime + 5; }
-function volume() { video.volume = this.value/100; console.log(this, progress.value, video.volume)}
+    }
+}
+
+function stop() {
+    video.pause();
+    video.currentTime = 0;
+}
+
+function stepBack() {
+    video.currentTime = video.currentTime - 5;
+}
+
+function stepForward() {
+    video.currentTime = video.currentTime + 5;
+}
+
+function volume() {
+    video.volume = this.value / 100;
+    console.log(this, progress.value, video.volume)
+}
 
 function videoChangeSpeed() { //Меняем скорость
 
@@ -48,8 +65,8 @@ function videoChangeSpeed() { //Меняем скорость
 function progressUpdate() {
     let d = video.duration;
     let c = video.currentTime;
-    let t = `${Math.floor(c/3600)}:${Math.floor(c/60)}:${Math.floor(c%60)}`;
-    let maxt = `${Math.floor(d/3600)}:${Math.floor(d/60)}:${Math.floor(d%60)}`;
+    let t = `${Math.floor(c / 3600)}:${Math.floor(c / 60)}:${Math.floor(c % 60)}`;
+    let maxt = `${Math.floor(d / 3600)}:${Math.floor(d / 60)}:${Math.floor(d % 60)}`;
     progress.value = (100 * c) / d;
     progressTime.innerHTML = `${t} / ${maxt}`;
 }
@@ -57,9 +74,9 @@ function progressUpdate() {
 function videoRewind() {
     let w = this.offsetWidth;
     let o = event.offsetX;
-    this.value = o/w*100;
+    this.value = o / w * 100;
     video.pause();
-    video.currentTime = video.duration * o/w;
+    video.currentTime = video.duration * o / w;
     video.play();
 }
 
@@ -67,38 +84,39 @@ function videoPlay() {
     let c = video.currentTime;
     let p = video.paused;
     let e = video.ended;
-    if (c > 0 && p == false &&  e == false) video.pause();
+    if (c > 0 && p == false && e == false) video.pause();
     else video.play();
 }
 
-document.onkeydown = function(e){
+document.onkeydown = function (e) {
     //space
-    if (e.keyCode == 75) {
+    if (e.keyCode == 75 || e.keyCode == 32) {
         videoPlay();
     }
     //right
-    if (e.keyCode == 76) {
+    if (e.keyCode == 76 || e.keyCode == 39) {
         stepForward();
     }
     //left
-    if (e.keyCode == 74) {
+    if (e.keyCode == 74 || e.keyCode == 37) {
         stepBack();
     }
+
     //up
     if (e.keyCode == 38) {
-        if (video.volume<=0.95) {
+        if (video.volume <= 0.95) {
             video.volume = video.volume + 0.05;
-            volumeBar.value = video.volume*100;
+            volumeBar.value = video.volume * 100;
         } else {
             video.volume = 1;
-            volumeBar.value = 1;
+            volumeBar.value = video.volume * 100;
         }
     }
     //down
     if (e.keyCode == 40) {
-        if (video.volume>=0.05) {
+        if (video.volume >= 0.05) {
             video.volume = video.volume - 0.05;
-            volumeBar.value = video.volume*100;
+            volumeBar.value = video.volume * 100;
         } else {
             video.volume = 0;
             volumeBar.value = 0;
