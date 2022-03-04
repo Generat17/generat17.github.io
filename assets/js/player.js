@@ -14,7 +14,8 @@ let volumeBar = document.querySelector('#volume');
 let progress = document.querySelector('#progress');
 
 let progressTime = document.querySelector('#progress-time');
-progressTime.innerHTML = `0:0:0`;
+
+progressTime.innerHTML = `0:0:0 / 0:0:0`;
 
 video.ontimeupdate = progressUpdate;
 progress.onclick = videoRewind;
