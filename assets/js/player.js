@@ -123,4 +123,15 @@ document.onkeydown = function (e) {
             volumeBar.value = 0;
         }
     }
+
+    //mute
+    if (e.keyCode == 77) {
+        if (video.volume == 0) {
+            video.volume = 1;
+            volumeBar.value = 100;
+        } else {
+            video.volume = 0;
+            volumeBar.value = 0;
+        }
+    }
 }
