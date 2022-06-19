@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="main">
+    <div class="player">
+
+        <div class="hello"></div>
+        <!-- Видео -->
+        <video id="video" class="player__video">
+            <source src="./media/video.mp4" type="video/mp4">
+            Видео не поддерживается вашим браузером.
+        </video>
+
+        <!-- Статус бар -->
+        <div class="player__status-bar">
+            <!-- Левый блок -->
+            <div class="player__status-bar__left">
+                <button class="player__status-bar__left__video_act" id="video_act">Play/Pause</button>
+                <button class="player__status-bar__left__stop" id="stop">Stop</button>
+                <div class="player__status-bar__progress-time" id="progress-time"></div>
+                <input class="player__status-bar__right__input" type="range" id="volume" value="100" min="0" max="101">
+            </div>
+
+            <!-- Прогресс видео -->
+            <div class="player__progress">
+                <progress id="progress" class="player__progress__progress" max="100" value="0"></progress>
+            </div>
+
+            <!-- Правый блок -->
+            <div class="player__status-bar__right">
+                <select title='Скорость' id='video_speed' class="player__status-bar__right__select">
+
+                    <option value='25'>x0.25</option>
+                    <option value='50'>x0.50</option>
+                    <option value='75'>x0.75</option>
+                    <option value='100' selected>x1.00</option>
+                    <option value='125'>x1.25</option>
+                    <option value='150'>x1.50</option>
+                    <option value='175'>x1.75</option>
+                    <option value='200'>x2.00</option>
+                    <option value='250'>x2.50</option>
+                    <option value='300'>x3.00</option>
+                    <option value='500'>x5.00</option>
+                    <option value='1000'>x10.00</option>
+
+                </select>
+                <button class="player__status-bar__right__step-back" id="step-back"><< 10</button>
+                <button class="player__status-bar__right__step-forward" id="step-forward">10 >></button>
+            </div>
+
+        </div>
+    </div>
+    <div class="description">
+        <h3>Горячие клавиши:</h3>
+        <h4>1) "K" or "space" - pause/play</h4>
+        <h4>2) "L" or "⇨" - step forward 10sec</h4>
+        <h4>3) "J" or "⇦" - step back 10sec</h4>
+        <h4>4) "⇧" - volume up</h4>
+        <h4>5) "⇩" - volume down</h4>
+        <h4>6) "M" - mute/unmute</h4>
+    </div>
+</div>
+
+<script src="./assets/js/player.js"></script>
+</body>
+</html>
