@@ -1,42 +1,42 @@
 // надписи и цвета на секторах
 const prizes = [
     {
-        text: "Завод",
+        text: "x0",
         color: "hsl(197 30% 43%)",
         multiplier: 0,
     },
     {
-        text: "Таможня",
+        text: "x2",
         color: "hsl(173 58% 39%)",
         multiplier: 2,
     },
     {
-        text: "Берег",
+        text: "x0",
         color: "hsl(43 74% 66%)",
         multiplier: 0,
     },
     {
-        text: "Развязка",
+        text: "x2",
         color: "hsl(27 87% 67%)",
         multiplier: 2,
     },
     {
-        text: "Маяк",
+        text: "x1",
         color: "hsl(12 76% 61%)",
         multiplier: 1,
     },
     {
-        text: "Лес",
+        text: "x3",
         color: "hsl(350 60% 52%)",
         multiplier: 3,
     },
     {
-        text: "Резерв",
+        text: "x0",
         color: "hsl(91 43% 54%)",
         multiplier: 0,
     },
     {
-        text: "Лаборатория",
+        text: "x5",
         color: "hsl(140 36% 74%)",
         multiplier: 5,
     }
